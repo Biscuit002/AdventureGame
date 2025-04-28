@@ -296,7 +296,14 @@ MonoBehaviour:
   stonePrefab: {fileID: 953402088855851773, guid: b6681dfe455cd4d88bb75cbf1ff775ee, type: 3}
   treeTrunkPrefab: {fileID: 939882473878639468, guid: df82bbef42b4244439dc7028cf1b2150, type: 3}
   treeLeavesPrefab: {fileID: 4283704989965256144, guid: ee17c33db37394d5dbd1698a40e9f435, type: 3}
-  orePrefabs: []
+  orePrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   blockSize: 1
   startPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1442577731
