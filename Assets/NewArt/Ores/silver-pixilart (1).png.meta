@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 17d33b0d5b97345bcb283834576e4069
+guid: 840e88ffa71e54802884a94d8b99d454
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4993692349456968823
-    second: stone-pixilart_0
+      213: 94945532869402224
+    second: silver-pixilart (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: stone-pixilart_0
+      name: silver-pixilart (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 98318011447d2bab0800000000000000
-      internalID: -4993692349456968823
+      spriteID: 07ed0b78570515100800000000000000
+      internalID: 94945532869402224
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      stone-pixilart_0: -4993692349456968823
+      silver-pixilart (1)_0: 94945532869402224
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
