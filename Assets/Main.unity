@@ -297,13 +297,13 @@ MonoBehaviour:
   treeTrunkPrefab: {fileID: 939882473878639468, guid: df82bbef42b4244439dc7028cf1b2150, type: 3}
   treeLeavesPrefab: {fileID: 4283704989965256144, guid: ee17c33db37394d5dbd1698a40e9f435, type: 3}
   orePrefabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6046749491904956846, guid: 0b3ec595af860410f91979a33bde2d23, type: 3}
+  - {fileID: 522934907162508886, guid: bd5563d9617d74428a560c267dceb1bb, type: 3}
+  - {fileID: 680882022236462883, guid: 11a60b05ac44541d19ff81f9f8fa0edd, type: 3}
+  - {fileID: 8866469301047622151, guid: 5779facf2fef04ea6b8d3b80ebdf5966, type: 3}
+  - {fileID: 7092246842203135567, guid: 751a2574df52d4e918548fd0ab836641, type: 3}
+  - {fileID: 529926597476889379, guid: 21a262fa594f74b9186131f243f9c0a0, type: 3}
+  - {fileID: 1932248000418953476, guid: 1bb832c8328324e3f9013ca454271f17, type: 3}
   blockSize: 1
   startPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1442577731
