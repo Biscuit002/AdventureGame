@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class Generation_Matrix : MonoBehaviour
 {
@@ -51,26 +52,26 @@ public class Generation_Matrix : MonoBehaviour
         // Basic terrain generation
         int baseMin = 15;
         int baseMax = 25;
-        int currentRow = Random.Range(18, 22);
-
+        int currentRow = UnityEngine.Random.Range(18, 22); // Explicitly specify UnityEngine.Random
+    
         // Generate basic terrain
         for (int col = 0; col < cols; col++)
         {
             int effectiveRow = Mathf.Clamp(currentRow, baseMin, baseMax);
             matrix[effectiveRow, col] = 1; // Grass
-
-            if (effectiveRow + 1 < rows && Random.value < 1f/3f)
+    
+            if (effectiveRow + 1 < rows && UnityEngine.Random.value < 1f / 3f) // Explicitly specify UnityEngine.Random
             {
                 matrix[effectiveRow + 1, col] = 1;
             }
-
+    
             if (col < cols - 1)
             {
-                int move = Random.Range(-1, 2);
+                int move = UnityEngine.Random.Range(-1, 2); // Explicitly specify UnityEngine.Random
                 currentRow = Mathf.Clamp(currentRow + move, baseMin, baseMax);
             }
         }
-
+    
         // Fill in dirt below grass
         for (int col = 0; col < cols; col++)
         {
@@ -87,16 +88,8 @@ public class Generation_Matrix : MonoBehaviour
                 }
             }
         }
-
+    
         // Add stone layer
-        AddStoneLayer(matrix, rows, cols);
-
-        // Generate caves
-        GenerateCaves(matrix, rows, cols);
-
-        // Generate mountains and canyons
-        GenerateMountainsAndCanyons(matrix, rows, cols);
-
         return matrix;
     }
 
@@ -157,7 +150,7 @@ public class Generation_Matrix : MonoBehaviour
         {
             for (int col = 0; col < cols; col++)
             {
-                stoneNoise[row, col] = Random.value;
+                stoneNoise[row, col] = UnityEngine.Random.value;
             }
         }
 
@@ -199,7 +192,7 @@ public class Generation_Matrix : MonoBehaviour
         {
             for (int row = 0; row < rows; row++)
             {
-                if (matrix[row, col] == 3 && Random.value < Mathf.Max(0.02f, 1f - row / (float)rows))
+                if (matrix[row, col] == 3 && UnityEngine.Random.value < Mathf.Max(0.02f, 1f - row / (float)rows))
                 {
                     matrix[row, col] = 2; // Dirt
                 }
@@ -215,7 +208,7 @@ public class Generation_Matrix : MonoBehaviour
         {
             for (int col = 0; col < cols; col++)
             {
-                caveLayer[row, col] = Random.value < fillProbability;
+                caveLayer[row, col] = UnityEngine.Random.value < fillProbability;
             }
         }
 
@@ -451,7 +444,7 @@ public class Generation_Matrix : MonoBehaviour
                             );
                             float chance = ore.baseProbability * depthFactor;
 
-                            if (Random.value < chance)
+                            if (UnityEngine.Random.value < chance)
                             {
                                 matrix[row, col] = ore.value;
                                 
@@ -468,7 +461,7 @@ public class Generation_Matrix : MonoBehaviour
                                         if (newRow >= 0 && newRow < rows && 
                                             newCol >= 0 && newCol < cols &&
                                             matrix[newRow, newCol] == 3 && 
-                                            Random.value < 0.5f)
+                                            UnityEngine.Random.value < 0.5f)
                                         {
                                             matrix[newRow, newCol] = ore.value;
                                         }
@@ -509,9 +502,9 @@ public class Generation_Matrix : MonoBehaviour
             if (grassTop == -1 || grassTop < 22) continue;
             if (col - lastTreeCol < 2) continue;
 
-            if (Random.value < 0.3f)
+            if (UnityEngine.Random.value < 0.3f)
             {
-                int trunkHeight = Random.Range(4, 8);
+                int trunkHeight = UnityEngine.Random.Range(4, 8);
                 List<int> trunkPositions = new List<int>();
                 int trunkTop = Mathf.Max(0, grassTop - trunkHeight + 1);
 
@@ -521,9 +514,9 @@ public class Generation_Matrix : MonoBehaviour
                     matrix[row, col] = 4; // Tree trunk
                     trunkPositions.Add(row);
 
-                    if (Random.value < 0.2f)
+                    if (UnityEngine.Random.value < 0.2f)
                     {
-                        int side = Random.Range(0, 2) * 2 - 1; // -1 or 1
+                        int side = UnityEngine.Random.Range(0, 2) * 2 - 1; // -1 or 1
                         if (col + side >= 0 && col + side < cols && 
                             matrix[row, col + side] == 0)
                         {
@@ -564,9 +557,9 @@ public class Generation_Matrix : MonoBehaviour
 
             if (grassTop == -1) continue;
 
-            if (Random.value < 0.8f)
+            if (UnityEngine.Random.value < 0.8f)
             {
-                int trunkHeight = Random.Range(6, 11);
+                int trunkHeight = UnityEngine.Random.Range(6, 11);
                 List<int> trunkPositions = new List<int>();
                 int trunkTop = Mathf.Max(0, grassTop - trunkHeight + 1);
 
@@ -576,7 +569,7 @@ public class Generation_Matrix : MonoBehaviour
                     matrix[row, col] = 4;
                     trunkPositions.Add(row);
 
-                    if (Random.value < 0.4f)
+                    if (UnityEngine.Random.value < 0.4f)
                     {
                         for (int side = -1; side <= 1; side += 2)
                         {
@@ -632,7 +625,7 @@ public class Generation_Matrix : MonoBehaviour
         float[] mountainNoise = new float[cols];
         for (int col = 0; col < cols; col++)
         {
-            mountainNoise[col] = Random.value;
+            mountainNoise[col] = UnityEngine.Random.value;
         }
         
         // Smooth mountain noise
@@ -646,8 +639,8 @@ public class Generation_Matrix : MonoBehaviour
                 mountainRangeMarker[col] = true;
                 
                 // Create mountain
-                int baseHeight = Random.Range(15, 20);
-                int peakHeight = Random.Range(5, 10);
+                int baseHeight = UnityEngine.Random.Range(15, 20);
+                int peakHeight = UnityEngine.Random.Range(5, 10);
                 
                 for (int row = 0; row < rows; row++)
                 {
@@ -658,7 +651,7 @@ public class Generation_Matrix : MonoBehaviour
                     else if (row < baseHeight + peakHeight)
                     {
                         float slope = (row - baseHeight) / (float)peakHeight;
-                        if (Random.value < slope)
+                        if (UnityEngine.Random.value < slope)
                         {
                             matrix[row, col] = 3; // Stone
                         }
@@ -675,7 +668,7 @@ public class Generation_Matrix : MonoBehaviour
         float[] canyonNoise = new float[cols];
         for (int col = 0; col < cols; col++)
         {
-            canyonNoise[col] = Random.value;
+            canyonNoise[col] = UnityEngine.Random.value;
         }
         
         // Smooth canyon noise
@@ -686,8 +679,8 @@ public class Generation_Matrix : MonoBehaviour
         {
             if (canyonNoise[col] > 0.8f && !mountainRangeMarker[col])
             {
-                int canyonWidth = Random.Range(3, 7);
-                int canyonDepth = Random.Range(5, 10);
+                int canyonWidth = UnityEngine.Random.Range(3, 7);
+                int canyonDepth = UnityEngine.Random.Range(5, 10);
                 
                 for (int w = 0; w < canyonWidth; w++)
                 {
