@@ -49,47 +49,50 @@ public class Generation_Matrix : MonoBehaviour
     {
         int[,] matrix = new int[rows, cols];
         
-        // Basic terrain generation
+        // 1. Basic terrain generation
         int baseMin = 15;
         int baseMax = 25;
-        int currentRow = UnityEngine.Random.Range(18, 22); // Explicitly specify UnityEngine.Random
-    
+        int currentRow = UnityEngine.Random.Range(18, 22);
+
         // Generate basic terrain
         for (int col = 0; col < cols; col++)
         {
             int effectiveRow = Mathf.Clamp(currentRow, baseMin, baseMax);
             matrix[effectiveRow, col] = 1; // Grass
-    
-            if (effectiveRow + 1 < rows && UnityEngine.Random.value < 1f / 3f) // Explicitly specify UnityEngine.Random
+
+            if (effectiveRow + 1 < rows && UnityEngine.Random.value < 1f/3f)
             {
                 matrix[effectiveRow + 1, col] = 1;
             }
-    
-            if (col < cols - 1)
+
+            // Add dirt below grass
+            for (int row = effectiveRow + 1; row < rows; row++)
             {
-                int move = UnityEngine.Random.Range(-1, 2); // Explicitly specify UnityEngine.Random
-                currentRow = Mathf.Clamp(currentRow + move, baseMin, baseMax);
-            }
-        }
-    
-        // Fill in dirt below grass
-        for (int col = 0; col < cols; col++)
-        {
-            bool foundGrass = false;
-            for (int row = 0; row < rows; row++)
-            {
-                if (matrix[row, col] == 1)
-                {
-                    foundGrass = true;
-                }
-                else if (foundGrass && matrix[row, col] == 0)
+                if (matrix[row, col] == 0)
                 {
                     matrix[row, col] = 2; // Dirt
                 }
             }
+
+            // Randomly adjust height for next column
+            currentRow += UnityEngine.Random.Range(-1, 2);
         }
-    
-        // Add stone layer
+
+        // 2. Add stone layer
+        AddStoneLayer(matrix, rows, cols);
+
+        // 3. Generate caves
+        GenerateCaves(matrix, rows, cols);
+
+        // 4. Generate mountains and canyons
+        GenerateMountainsAndCanyons(matrix, rows, cols);
+
+        // 5. Generate ores
+        GenerateOres(matrix, rows, cols);
+
+        // 6. Generate trees
+        GenerateTrees(matrix, rows, cols);
+
         return matrix;
     }
 
