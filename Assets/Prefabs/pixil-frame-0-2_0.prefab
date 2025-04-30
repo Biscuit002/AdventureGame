@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5874823257780268565}
   - component: {fileID: 2314983181263404031}
   - component: {fileID: 5456525780191104286}
+  - component: {fileID: -3263715813085925653}
   m_Layer: 0
   m_Name: pixil-frame-0-2_0
   m_TagString: Untagged
@@ -134,3 +135,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
+--- !u!114 &-3263715813085925653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6764798889672699533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bae3f5b61e884284c9d8f7acea33fad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockTag: Grass
+  weight: 0
+  maxSupport: 0
+  isFalling: 0
