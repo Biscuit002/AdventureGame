@@ -6,11 +6,18 @@ using System.Collections.Generic;
 public class Block : MonoBehaviour
 {
     [Header("Block Properties")]
+
     [Tooltip("Set this to match the tag from your BlockDefinitionManager.")]
     public string blockTag;
 
     [Tooltip("Delay (in seconds) before starting stability checks (to allow terrain generation).")]
     public float startDelay = 0.5f;
+
+    [Tooltip("Interval (in seconds) between each stability check.")]
+    public float stabilityCheckInterval = 1.0f;
+
+    [Tooltip("Layer mask used for detecting block colliders (assign only the layer that your blocks are on).")]
+    public LayerMask blockLayerMask;
 
     [HideInInspector]
     public float weight;
@@ -21,13 +28,12 @@ public class Block : MonoBehaviour
     [HideInInspector]
     public bool isFalling = false;
 
-    // Use a coroutine for Start() to allow a delay before initiating stability checks.
     IEnumerator Start()
     {
-        // Wait for the specified delay. This delay helps ensure that the terrain generator has instantiated the blocks.
+        // Wait for terrain generation to complete
         yield return new WaitForSeconds(startDelay);
-        
-        // Retrieve the block properties from the manager based on blockTag.
+
+        // Retrieve block properties from the BlockDefinitionManager
         if (BlockDefinitionManager.Instance != null)
         {
             BlockDefinition def = BlockDefinitionManager.Instance.GetBlockDefinition(blockTag);
@@ -35,10 +41,11 @@ public class Block : MonoBehaviour
             {
                 weight = def.weight;
                 maxSupport = def.maxSupport;
+                Debug.Log($"[{blockTag}] Properties set: weight = {weight}, maxSupport = {maxSupport}");
             }
             else
             {
-                Debug.LogError("BlockDefinition for tag '" + blockTag + "' was not found!");
+                Debug.LogError($"BlockDefinition for tag '{blockTag}' was not found!");
             }
         }
         else
@@ -46,19 +53,34 @@ public class Block : MonoBehaviour
             Debug.LogError("BlockDefinitionManager instance not found in the scene.");
         }
 
-        // Begin checking stability every 0.5 seconds.
-        InvokeRepeating("CheckStability", 0f, 0.5f);
+        // Begin checking stability at the defined interval.
+        InvokeRepeating("CheckStability", 0f, stabilityCheckInterval);
     }
 
     /// <summary>
-    /// Checks if the total weight of blocks below exceeds this block's maxSupport.
+    /// Checks whether this block has immediate support and if the cumulative weight below exceeds its support value.
     /// </summary>
     void CheckStability()
     {
         if (isFalling)
             return;
 
+        // Use an overlap check to see if there is a collider immediately below.
+        // Calculate the bottom position of the block. Assuming your blocks are 1 unit tall,
+        // the bottom is at (transform.position.y - 0.5). We add a small epsilon offset.
+        float epsilon = 0.05f;  // Adjust this tolerance based on your collider dimensions
+        Vector2 bottomPos = new Vector2(transform.position.x, transform.position.y - 0.5f + epsilon);
+        Collider2D immediateCollider = Physics2D.OverlapCircle(bottomPos, epsilon, blockLayerMask);
+        if (immediateCollider == null)
+        {
+            Debug.Log($"[{blockTag}] No immediate support detected at {bottomPos}. Falling.");
+            Fall();
+            return;
+        }
+
+        // Otherwise, calculate the total weight of blocks below.
         float totalWeightBelow = CalculateWeightBelow();
+        Debug.Log($"[{blockTag}] Total weight below: {totalWeightBelow} (maxSupport = {maxSupport}) at {transform.position}");
 
         if (totalWeightBelow > maxSupport)
         {
@@ -67,17 +89,18 @@ public class Block : MonoBehaviour
     }
 
     /// <summary>
-    /// Recursively calculates the total weight of blocks below this block.
-    /// It uses a safety counter (maxChecks) to avoid endless loops if blocks haven't been generated.
+    /// Recursively calculates the total weight of blocks below this block using raycasts.
+    /// A safety counter prevents infinite loops if blocks are missing.
     /// </summary>
     float CalculateWeightBelow()
     {
         float totalWeight = 0f;
-        Vector2 origin = (Vector2)transform.position + Vector2.down * 0.5f; // Start just below the block.
+        // Start just below this block.
+        Vector2 origin = (Vector2)transform.position + Vector2.down * 0.5f;
 
         int safetyCounter = 0;
-        int maxChecks = 50;  // Maximum iterations to prevent infinite loops in case of missing blocks.
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, 1f);
+        int maxChecks = 50;  // Maximum iterations as a safeguard.
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, 1f, blockLayerMask);
 
         while (hit.collider != null && safetyCounter < maxChecks)
         {
@@ -85,19 +108,25 @@ public class Block : MonoBehaviour
             if (blockBelow != null)
             {
                 totalWeight += blockBelow.weight;
+                Debug.Log($"-- Detected block [{blockBelow.blockTag}] at {hit.collider.transform.position} with weight {blockBelow.weight}");
             }
 
-            // Advance the origin to just below the block that was hit.
+            // Advance the origin to just below the hit block.
             origin = (Vector2)hit.collider.transform.position + Vector2.down * 0.5f;
-            hit = Physics2D.Raycast(origin, Vector2.down, 1f);
+            hit = Physics2D.Raycast(origin, Vector2.down, 1f, blockLayerMask);
             safetyCounter++;
+        }
+
+        if (safetyCounter >= maxChecks)
+        {
+            Debug.LogWarning("CalculateWeightBelow safety counter reached maxChecks.");
         }
 
         return totalWeight;
     }
 
     /// <summary>
-    /// Triggers falling physics on this block and cascades the effect to connected blocks below.
+    /// Initiates falling physics on this block and cascades the falling effect to connected blocks below.
     /// </summary>
     public void Fall()
     {
@@ -105,8 +134,9 @@ public class Block : MonoBehaviour
             return;
 
         isFalling = true;
+        Debug.Log($"[{blockTag}] Falling triggered at {transform.position}");
 
-        // Add a Rigidbody2D component if one isn't already attached, so Unity's physics take over.
+        // Add a Rigidbody2D (or use the existing one) so physics take over.
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
@@ -114,25 +144,26 @@ public class Block : MonoBehaviour
         }
         rb.gravityScale = 1;
 
-        // Stop further stability checks since this block is now falling.
+        // Stop further stability checks.
         CancelInvoke("CheckStability");
 
-        // Trigger the fall cascade on any block immediately below.
+        // Cascade the fall to any block directly below.
         CascadeFall();
     }
 
     /// <summary>
-    /// Checks the block directly below and triggers its Fall() if it isn’t already falling.
+    /// Checks for a block directly beneath and triggers its Fall() if not already falling.
     /// </summary>
     void CascadeFall()
     {
         Vector2 origin = (Vector2)transform.position + Vector2.down * 0.5f;
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, 1f);
+        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, 1f, blockLayerMask);
         if (hit.collider != null)
         {
             Block belowBlock = hit.collider.GetComponent<Block>();
             if (belowBlock != null && !belowBlock.isFalling)
             {
+                Debug.Log($"-- Cascading fall to block [{belowBlock.blockTag}] at {hit.collider.transform.position}");
                 belowBlock.Fall();
             }
         }

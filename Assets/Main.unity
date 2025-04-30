@@ -353,7 +353,22 @@ MonoBehaviour:
   blockDefinitions:
   - tag: Leaf
     weight: 1
-    maxSupport: 1
+    maxSupport: 0
+  - tag: Bark
+    weight: 1
+    maxSupport: 0
+  - tag: Stone
+    weight: 0
+    maxSupport: 999
+  - tag: Dirt
+    weight: 0
+    maxSupport: 999
+  - tag: Grass
+    weight: 0
+    maxSupport: 999
+  - tag: Ore
+    weight: 0
+    maxSupport: 999
 --- !u!4 &1953376526
 Transform:
   m_ObjectHideFlags: 0
