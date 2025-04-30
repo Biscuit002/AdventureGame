@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockTag: Bark
+  startDelay: 0.5
   weight: 0
   maxSupport: 0
   isFalling: 0
