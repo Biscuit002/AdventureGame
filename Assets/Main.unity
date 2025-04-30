@@ -281,6 +281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Ninja
       objectReference: {fileID: 0}
+    - target: {fileID: 180128, guid: f0187a43815b60745a3841ed349ab2a2, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 476504, guid: f0187a43815b60745a3841ed349ab2a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -402,6 +406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1808713805}
   - component: {fileID: 1808713804}
+  - component: {fileID: 1808713806}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -436,6 +441,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1808713806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808713803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a4a24606eec947ec9af2bea1f5fecab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physicsRadius: 32
+  updateInterval: 0.1
 --- !u!1 &1953376524
 GameObject:
   m_ObjectHideFlags: 0
