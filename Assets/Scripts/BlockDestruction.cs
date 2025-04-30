@@ -4,10 +4,11 @@ public class BlockDestruction : MonoBehaviour
 {
     private float mouseX;
     private float mouseY;
+    public Block2 block2;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        block2 = FindObjectOfType<Block2>();
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class BlockDestruction : MonoBehaviour
 
             if (hit.collider != null)
             {
-                if (hit.collider.CompareTag("Block"))
+                if (hit.collider.CompareTag("Block") && block2.isExposesd)
                 {
                     // Destroy the block
                     Destroy(hit.collider.gameObject);

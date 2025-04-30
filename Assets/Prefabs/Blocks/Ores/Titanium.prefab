@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8545908875386298883}
   - component: {fileID: 7225005153569219223}
   - component: {fileID: -9155301593585780555}
+  - component: {fileID: -1551958650298492850}
   m_Layer: 6
   m_Name: Titanium
   m_TagString: Block
@@ -156,3 +157,15 @@ MonoBehaviour:
   weight: 0
   maxSupport: 0
   isFalling: 0
+--- !u!114 &-1551958650298492850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529926597476889379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757ee522d872747d4ab951a96623c9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

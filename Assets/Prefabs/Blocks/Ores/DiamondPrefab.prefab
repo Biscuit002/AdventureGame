@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7992792450057447586}
   - component: {fileID: 4058115581405005767}
   - component: {fileID: -2749797506146076010}
+  - component: {fileID: 7584120373138155150}
   m_Layer: 6
   m_Name: DiamondPrefab
   m_TagString: Block
@@ -156,3 +157,15 @@ MonoBehaviour:
   weight: 0
   maxSupport: 0
   isFalling: 0
+--- !u!114 &7584120373138155150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932248000418953476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757ee522d872747d4ab951a96623c9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

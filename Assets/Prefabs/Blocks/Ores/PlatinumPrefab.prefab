@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 672424207514328066}
   - component: {fileID: -3682763833446642290}
   - component: {fileID: 8864098658002407374}
+  - component: {fileID: 235161297508085878}
   m_Layer: 6
   m_Name: PlatinumPrefab
   m_TagString: Block
@@ -156,3 +157,15 @@ MonoBehaviour:
   weight: 0
   maxSupport: 0
   isFalling: 0
+--- !u!114 &235161297508085878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7092246842203135567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757ee522d872747d4ab951a96623c9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
