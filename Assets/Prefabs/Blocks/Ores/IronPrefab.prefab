@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7900460998378276250}
   - component: {fileID: 7482555129924185010}
   - component: {fileID: 4939292421087880906}
+  - component: {fileID: 4321906643257844295}
   m_Layer: 6
   m_Name: IronPrefab
   m_TagString: Block
@@ -147,3 +148,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae3f5b61e884284c9d8f7acea33fad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4321906643257844295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8866469301047622151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757ee522d872747d4ab951a96623c9c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isExposesd: 0
