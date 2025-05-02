@@ -58,6 +58,13 @@ public class FallState : PlayerBaseState
             stateMachine.SwitchState(stateMachine.ShootState);
             return;
         }
+
+        // Check for slam input
+        if (stateMachine.InputReader.IsSlamPressed())
+        {
+            stateMachine.SwitchState(stateMachine.SlamState);
+            return;
+        }
     }
 
     public override void Exit()

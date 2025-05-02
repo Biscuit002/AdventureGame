@@ -52,16 +52,16 @@ public class PlayerStateMachine : MonoBehaviour
     private Dictionary<string, PlayerBaseState> stateRegistry = new Dictionary<string, PlayerBaseState>();
 
     // Concrete states
-    public PlayerIdleState IdleState { get; private set; } // Add IdleState property back
-
+    public PlayerIdleState IdleState { get; private set; }
     public WalkState WalkState { get; private set; }
     public RunState RunState { get; private set; }
     public JumpState JumpState { get; private set; }
     public CrouchState CrouchState { get; private set; }
     public SlideState SlideState { get; private set; }
     public WallClingState WallClingState { get; private set; }
-    public ShootState ShootState { get; private set; } // Add ShootState declaration
-    public FallState FallState { get; private set; } // Add FallState declaration
+    public ShootState ShootState { get; private set; }
+    public FallState FallState { get; private set; }
+    public SlamState SlamState { get; private set; }
 
     // Component References (Example)
     public Rigidbody2D RB { get; private set; }
@@ -107,29 +107,28 @@ public class PlayerStateMachine : MonoBehaviour
         InputReader = new InputReader(); // Instantiate the new InputReader class
 
         // Initialize concrete states
-        IdleState = new PlayerIdleState(this); // Instantiate the new PlayerIdleState class
-        // MoveState removed
+        IdleState = new PlayerIdleState(this);
         WalkState = new WalkState(this);
         RunState = new RunState(this);
-    
+        JumpState = new JumpState(this);
+        CrouchState = new CrouchState(this);
+        SlideState = new SlideState(this);
+        WallClingState = new WallClingState(this);
+        ShootState = new ShootState(this);
+        FallState = new FallState(this);
+        SlamState = new SlamState(this);
+
         // Register states
-        stateRegistry[nameof(PlayerIdleState)] = IdleState; // Register the new PlayerIdleState
-        // MoveState registration removed
+        stateRegistry[nameof(PlayerIdleState)] = IdleState;
         stateRegistry[nameof(WalkState)] = WalkState;
         stateRegistry[nameof(RunState)] = RunState;
-        JumpState = new JumpState(this);
         stateRegistry[nameof(JumpState)] = JumpState;
-        CrouchState = new CrouchState(this);
         stateRegistry[nameof(CrouchState)] = CrouchState;
-        SlideState = new SlideState(this);
-        // ... register other states
-        WallClingState = new WallClingState(this);
-        stateRegistry[nameof(WallClingState)] = WallClingState;
         stateRegistry[nameof(SlideState)] = SlideState;
-        ShootState = new ShootState(this); // Initialize ShootState
-        stateRegistry[nameof(ShootState)] = ShootState; // Register ShootState
-        FallState = new FallState(this); // Initialize FallState
-        stateRegistry[nameof(FallState)] = FallState; // Register FallState
+        stateRegistry[nameof(WallClingState)] = WallClingState;
+        stateRegistry[nameof(ShootState)] = ShootState;
+        stateRegistry[nameof(FallState)] = FallState;
+        stateRegistry[nameof(SlamState)] = SlamState;
 
         // Initialize jumps
         JumpsRemaining = MaxJumps;
