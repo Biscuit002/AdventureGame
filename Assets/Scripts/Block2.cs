@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Block2 : MonoBehaviour
@@ -9,24 +10,28 @@ public class Block2 : MonoBehaviour
         isExposesd = false; // Reset to false every frame
 
         RaycastHit hit;
-        float rayDistance = 1f;
+        float rayDistance = 0.5f;
 
         // Cast rays in 4 directions
         if (!Physics.Raycast(transform.position, Vector3.up, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
         {
             isExposesd = true;
+            Debug.DrawRay(transform.position, Vector3.up * rayDistance, Color.blue);
         }
-        else if (!Physics.Raycast(transform.position, Vector3.down, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
+        if (!Physics.Raycast(transform.position, Vector3.down, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
         {
             isExposesd = true;
+            Debug.DrawRay(transform.position, Vector3.down * rayDistance, Color.blue);
         }
-        else if (!Physics.Raycast(transform.position, Vector3.left, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
+        if (!Physics.Raycast(transform.position, Vector3.left, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
         {
             isExposesd = true;
+            Debug.DrawRay(transform.position, Vector3.left * rayDistance, Color.blue);
         }
-        else if (!Physics.Raycast(transform.position, Vector3.right, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
+        if (!Physics.Raycast(transform.position, Vector3.right, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
         {
             isExposesd = true;
+            Debug.DrawRay(transform.position, Vector3.right * rayDistance, Color.blue);
         }
     }
 }
