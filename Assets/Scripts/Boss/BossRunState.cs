@@ -7,7 +7,6 @@ public class BossRunState : BossBaseState
     private float stompTimer;
     private float stompInterval = 0.5f;
     private bool isStomping = false;
-    public GameObject stompDamageBox;
 
     public BossRunState(BossStateMachine stateMachine) : base(stateMachine) { }
 
@@ -52,11 +51,17 @@ public class BossRunState : BossBaseState
     private void ToggleStomp()
     {
         isStomping = !isStomping;
-        stompDamageBox.SetActive(isStomping);
+        if (stateMachine.stompDamageBox != null)
+        {
+            stateMachine.stompDamageBox.SetActive(isStomping);
+        }
     }
 
     public override void Exit()
     {
-        stompDamageBox.SetActive(false);
+        if (stateMachine.stompDamageBox != null)
+        {
+            stateMachine.stompDamageBox.SetActive(false);
+        }
     }
 } 

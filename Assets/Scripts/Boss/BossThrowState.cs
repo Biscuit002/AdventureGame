@@ -5,7 +5,6 @@ public class BossThrowState : BossBaseState
     private int throwsRemaining;
     private float throwCooldown = 0.5f;
     private float nextThrowTime;
-    public GameObject bombPrefab;
 
     public BossThrowState(BossStateMachine stateMachine) : base(stateMachine) { }
 
@@ -35,13 +34,19 @@ public class BossThrowState : BossBaseState
 
     private void ThrowBomb()
     {
+        if (stateMachine.bombPrefab == null)
+        {
+            Debug.LogError("Bomb prefab not assigned in BossStateMachine!");
+            return;
+        }
+
         // Calculate trajectory to player
         Vector2 targetPos = stateMachine.Player.position;
-        Vector2 currentPos = transform.position;
+        Vector2 currentPos = stateMachine.transform.position;
         Vector2 direction = (targetPos - currentPos).normalized;
 
         // Spawn bomb
-        GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+        GameObject bomb = Object.Instantiate(stateMachine.bombPrefab, stateMachine.transform.position, Quaternion.identity);
         Rigidbody2D bombRb = bomb.GetComponent<Rigidbody2D>();
         
         // Apply force with slight randomness

@@ -21,6 +21,11 @@ public class BossStateMachine : MonoBehaviour
     public float SlamDamage = 30f;
     public float ExplosionRadius = 3f;
 
+    // References to damage boxes
+    public GameObject stompDamageBox;
+    public GameObject slamDamageBox;
+    public GameObject bombPrefab;
+
     private BossBaseState currentState;
 
     private void Awake()
@@ -34,10 +39,29 @@ public class BossStateMachine : MonoBehaviour
         RunState = new BossRunState(this);
         JumpState = new BossJumpState(this);
         ThrowState = new BossThrowState(this);
+
+        // Set up damage boxes
+        if (stompDamageBox == null)
+        {
+            Debug.LogError("StompDamageBox not assigned in BossStateMachine!");
+        }
+        if (slamDamageBox == null)
+        {
+            Debug.LogError("SlamDamageBox not assigned in BossStateMachine!");
+        }
+        if (bombPrefab == null)
+        {
+            Debug.LogError("BombPrefab not assigned in BossStateMachine!");
+        }
+
+        // Initialize damage boxes to inactive
+        if (stompDamageBox != null) stompDamageBox.SetActive(false);
+        if (slamDamageBox != null) slamDamageBox.SetActive(false);
     }
 
     private void Start()
     {
+        
         SwitchState(IdleState);
     }
 
