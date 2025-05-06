@@ -126,6 +126,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -254414384730816235, guid: 1dd42ab7fe0c34831a052c3e8ab2398d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2314983181263404031, guid: 1dd42ab7fe0c34831a052c3e8ab2398d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5874823257780268565, guid: 1dd42ab7fe0c34831a052c3e8ab2398d, type: 3}
       propertyPath: m_LocalScale.x
       value: 189.37375
@@ -204,7 +212,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327573250}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a4a24606eec947ec9af2bea1f5fecab, type: 3}
   m_Name: 
@@ -224,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a7677dff2af431592382c7b9662439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  block2: {fileID: 0}
+  grassPrefab: {fileID: 0}
 --- !u!4 &1327573253
 Transform:
   m_ObjectHideFlags: 0
@@ -256,7 +264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1332328907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332328906}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4590db3dbd7f450cb8b06f1daed9751, type: 3}
   m_Name: 
@@ -330,7 +338,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1756409686}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73257dfcbc48ea74092421b3ab509aba, type: 3}
   m_Name: 

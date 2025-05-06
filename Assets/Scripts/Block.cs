@@ -34,13 +34,4 @@ public class Block : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
     }
-
-    void OnDrawGizmos()
-    {
-        if (Application.isPlaying)
-        {
-            Gizmos.color = isFalling ? Color.red : Color.green;
-            Gizmos.DrawWireSphere(transform.position, 0.2f);
-        }
-    }
 }
