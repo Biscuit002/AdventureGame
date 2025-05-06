@@ -16,22 +16,18 @@ public class Block2 : MonoBehaviour
         if (!Physics.Raycast(transform.position, Vector3.up, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
         {
             isExposesd = true;
-            Debug.DrawRay(transform.position, Vector3.up * rayDistance, Color.blue);
         }
         if (!Physics.Raycast(transform.position, Vector3.down, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
         {
             isExposesd = true;
-            Debug.DrawRay(transform.position, Vector3.down * rayDistance, Color.blue);
         }
         if (!Physics.Raycast(transform.position, Vector3.left, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
         {
             isExposesd = true;
-            Debug.DrawRay(transform.position, Vector3.left * rayDistance, Color.blue);
         }
         if (!Physics.Raycast(transform.position, Vector3.right, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
         {
             isExposesd = true;
-            Debug.DrawRay(transform.position, Vector3.right * rayDistance, Color.blue);
         }
     }
 }
