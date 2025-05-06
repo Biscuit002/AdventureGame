@@ -37,7 +37,10 @@ public class BlockDestruction : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
         Vector3 hitPoint = new Vector3(Mathf.Round(hit.point.x), Mathf.Round(hit.point.y), -0.01f); 
 
-        Instantiate(grassPrefab, hitPoint, Quaternion.identity);
+        if (hit.collider == null)
+        {
+            Instantiate(grassPrefab, hitPoint, Quaternion.identity);
+        }
 
     }
 }
