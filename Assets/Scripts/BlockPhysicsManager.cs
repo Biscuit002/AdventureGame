@@ -169,22 +169,4 @@ public class BlockPhysicsManager : MonoBehaviour
         
         chunkMap[newChunk].Add(block);
     }
-
-    void OnDrawGizmos()
-    {
-        if (player != null)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(player.position, physicsRadius);
-            
-            Gizmos.color = Color.cyan;
-            Vector2Int chunk = GetChunkPosition(player.position);
-            Vector3 chunkCenter = new Vector3(
-                chunk.x * chunkSize + chunkSize / 2f,
-                chunk.y * chunkSize + chunkSize / 2f,
-                0
-            );
-            Gizmos.DrawWireCube(chunkCenter, new Vector3(chunkSize, chunkSize, 0));
-        }
-    }
 } 
