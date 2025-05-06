@@ -1,33 +1,52 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Block2 : MonoBehaviour
 {
-    public bool isExposesd;
+    float rayDistance = 0.6f;
 
     void Update()
     {
-        isExposesd = false; // Reset to false every frame
+        
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, Vector2.up * rayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.down * rayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.left * rayDistance);
+        Gizmos.DrawRay(transform.position, Vector2.right * rayDistance);
+    }
+    public bool IsExposed()
+    {
+        RaycastHit2D hit;
 
-        RaycastHit hit;
-        float rayDistance = 0.5f;
+        // Cast ray upwards
+        hit = Physics2D.Raycast(transform.position, Vector2.up, rayDistance);
+        if (hit.collider == null || !hit.collider.CompareTag("Block"))
+        {
+            return true;
+        }
 
-        // Cast rays in 4 directions
-        if (!Physics.Raycast(transform.position, Vector3.up, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
+        // Cast ray downwards
+        hit = Physics2D.Raycast(transform.position, Vector2.down, rayDistance);
+        if (hit.collider == null || !hit.collider.CompareTag("Block"))
         {
-            isExposesd = true;
+            return true;
         }
-        if (!Physics.Raycast(transform.position, Vector3.down, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
+
+        // Cast ray to the left
+        hit = Physics2D.Raycast(transform.position, Vector2.left, rayDistance);
+        if (hit.collider == null || !hit.collider.CompareTag("Block"))
         {
-            isExposesd = true;
+            return true;
         }
-        if (!Physics.Raycast(transform.position, Vector3.left, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
+
+        // Cast ray to the right
+        hit = Physics2D.Raycast(transform.position, Vector2.right, rayDistance);
+        if (hit.collider == null || !hit.collider.CompareTag("Block"))
         {
-            isExposesd = true;
+            return true;
         }
-        if (!Physics.Raycast(transform.position, Vector3.right, out hit, rayDistance) || !hit.collider.CompareTag("Block"))
-        {
-            isExposesd = true;
-        }
+        return false;
     }
 }

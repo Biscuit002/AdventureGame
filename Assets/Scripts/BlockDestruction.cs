@@ -5,7 +5,6 @@ public class BlockDestruction : MonoBehaviour
     private float mouseX;
     private float mouseY;
     public GameObject grassPrefab;
-
     void Update()
     {
         mouseX = Input.GetAxis("Mouse X");
@@ -13,17 +12,7 @@ public class BlockDestruction : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-            if (hit.collider != null)
-            {
-                Block2 hitBlock = hit.collider.GetComponent<Block2>();
-                if (hit.collider.CompareTag("Block") && hitBlock != null && hitBlock.isExposesd)
-                {
-                    Destroy(hit.collider.gameObject);
-                }
-            }
+            DestroyBlock();
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -39,8 +28,29 @@ public class BlockDestruction : MonoBehaviour
 
         if (hit.collider == null)
         {
-            Instantiate(grassPrefab, hitPoint, Quaternion.identity);
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0; // Set z to 0 to place the block on the same plane
+
+            mousePosition = new Vector3(Mathf.Round(mousePosition.x), Mathf.Round(mousePosition.y), -0.01f); // Round the position to snap to grid
+            Instantiate(grassPrefab, mousePosition, Quaternion.identity);
+            
         }
 
+    }
+
+    private void DestroyBlock()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+        if (hit.collider != null && hit.collider.CompareTag("Block"))
+        {
+            // Check if the block is exposed before destroying it
+            Block2 block2 = hit.collider.GetComponent<Block2>();
+            if (block2.IsExposed())
+            {
+                Destroy(hit.collider.gameObject);
+            }
+        }
     }
 }
