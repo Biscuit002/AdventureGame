@@ -7,7 +7,7 @@ public class BossRunState : BossBaseState
     private float stompTimer;
     private float stompInterval = 0.5f;
     private bool isStomping = false;
-
+    
     public BossRunState(BossStateMachine stateMachine) : base(stateMachine) { }
 
     public override void Enter()
@@ -35,7 +35,7 @@ public class BossRunState : BossBaseState
             ToggleStomp();
         }
 
-        // Check for state transitions
+        // Check for state transitions when time is up
         if (Time.time >= runEndTime)
         {
             float random = Random.value;
@@ -63,5 +63,6 @@ public class BossRunState : BossBaseState
         {
             stateMachine.stompDamageBox.SetActive(false);
         }
+        // Removed the call to stateMachine.ChooseNextStateAfterRun() to avoid recursive switching.
     }
-} 
+}

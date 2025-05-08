@@ -36,7 +36,7 @@ public class BossStateMachine : MonoBehaviour
 
         // Initialize states
         IdleState = new BossIdleState(this);
-        RunState = new BossRunState(this);
+        RunState  = new BossRunState(this);
         JumpState = new BossJumpState(this, slamDamageBox);
         ThrowState = new BossThrowState(this);
 
@@ -61,7 +61,6 @@ public class BossStateMachine : MonoBehaviour
 
     private void Start()
     {
-        
         SwitchState(IdleState);
     }
 
@@ -91,4 +90,26 @@ public class BossStateMachine : MonoBehaviour
     {
         return (Player.position - transform.position).normalized;
     }
-} 
+
+    // NEW: Choose the next state after the run state based on probabilities.
+    // 0-2: Idle (30%), 3-5: Jump (30%), 6-9: Throw (40%)
+    public void ChooseNextStateAfterRun()
+    {
+        int nextAction = Random.Range(0, 10); // Generates a number between 0 and 9.
+        if (nextAction < 3)
+        {
+            SwitchState(IdleState);
+            Debug.Log("Next state chosen: IdleState");
+        }
+        else if (nextAction < 6)
+        {
+            SwitchState(JumpState);
+            Debug.Log("Next state chosen: JumpState");
+        }
+        else
+        {
+            SwitchState(ThrowState);
+            Debug.Log("Next state chosen: ThrowState");
+        }
+    }
+}
