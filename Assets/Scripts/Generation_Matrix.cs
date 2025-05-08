@@ -146,52 +146,62 @@ public class Generation_Matrix : MonoBehaviour
     }
 
     private void AddStoneLayer(int[,] matrix, int rows, int cols)
-{
-    int minStoneRow = 25; // Don’t generate stone above this row
-    float[,] stoneNoise = new float[rows, cols];
-
-    // Generate noise
-    for (int row = 0; row < rows; row++)
     {
-        for (int col = 0; col < cols; col++)
+        // Create noise for stone layer
+        float[,] stoneNoise = new float[rows, cols];
+        for (int row = 0; row < rows; row++)
         {
-            stoneNoise[row, col] = UnityEngine.Random.value;
-        }
-    }
-
-    // Smooth the noise
-    stoneNoise = SmoothArray(stoneNoise, 2);
-
-    // Assign stone bottom-up
-    for (int row = rows - 1; row >= minStoneRow; row--)
-    {
-        for (int col = 0; col < cols; col++)
-        {
-            float threshold = (row + 22f) / rows;
-            if (stoneNoise[row, col] < threshold)
+            for (int col = 0; col < cols; col++)
             {
-                // Only replace dirt (don't overwrite grass or tree roots)
-                if (matrix[row, col] == 2)
+                stoneNoise[row, col] = UnityEngine.Random.value;
+            }
+        }
+
+        // Smooth the noise
+        stoneNoise = SmoothArray(stoneNoise, 2);
+
+        // Generate stone layer
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < cols; col++)
+            {
+                float threshold = (row + 22f) / rows;
+                if (stoneNoise[row, col] < threshold)
                 {
                     matrix[row, col] = 3; // Stone
                 }
             }
         }
-    }
 
-    // Add dirt patches inside stone for variety
-    for (int col = 0; col < cols; col++)
-    {
-        for (int row = minStoneRow; row < rows; row++)
+        // Fill in stone below existing stone
+        for (int col = 0; col < cols; col++)
         {
-            if (matrix[row, col] == 3 && UnityEngine.Random.value < Mathf.Max(0.02f, 1f - row / (float)rows))
+            bool foundStone = false;
+            for (int row = 0; row < rows; row++)
             {
-                matrix[row, col] = 2; // Dirt patch
+                if (matrix[row, col] == 3)
+                {
+                    foundStone = true;
+                }
+                else if (foundStone)
+                {
+                    matrix[row, col] = 3;
+                }
+            }
+        }
+
+        // Add occasional dirt patches
+        for (int col = 0; col < cols; col++)
+        {
+            for (int row = 0; row < rows; row++)
+            {
+                if (matrix[row, col] == 3 && UnityEngine.Random.value < Mathf.Max(0.02f, 1f - row / (float)rows))
+                {
+                    matrix[row, col] = 2; // Dirt
+                }
             }
         }
     }
-}
-
 
     private void GenerateCaves(int[,] matrix, int rows, int cols)
     {

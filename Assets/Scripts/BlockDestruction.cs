@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using UnityEngine;
 
 public class BlockDestruction : MonoBehaviour
@@ -5,6 +6,7 @@ public class BlockDestruction : MonoBehaviour
     private float mouseX;
     private float mouseY;
     public GameObject grassPrefab;
+    private float blockInteractionDistance = 5f;
     void Update()
     {
         mouseX = Input.GetAxis("Mouse X");
@@ -22,9 +24,9 @@ public class BlockDestruction : MonoBehaviour
 
     private void placeBlock()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-        Vector3 hitPoint = new Vector3(Mathf.Round(hit.point.x), Mathf.Round(hit.point.y), -0.01f); 
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 
         if (hit.collider == null)
         {
@@ -33,7 +35,6 @@ public class BlockDestruction : MonoBehaviour
 
             mousePosition = new Vector3(Mathf.Round(mousePosition.x), Mathf.Round(mousePosition.y), -0.01f); // Round the position to snap to grid
             Instantiate(grassPrefab, mousePosition, Quaternion.identity);
-            
         }
 
     }
@@ -47,7 +48,7 @@ public class BlockDestruction : MonoBehaviour
         {
             // Check if the block is exposed before destroying it
             Block2 block2 = hit.collider.GetComponent<Block2>();
-            if (block2.IsExposed())
+            if (block2.IsExposed() && Vector2.Distance(hit.point, transform.position) < blockInteractionDistance)
             {
                 Destroy(hit.collider.gameObject);
             }
