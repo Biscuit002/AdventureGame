@@ -160,3 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757ee522d872747d4ab951a96623c9c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockType: Grass

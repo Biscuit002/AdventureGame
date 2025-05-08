@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class Block2 : MonoBehaviour
 {
-    float rayDistance = 0.1f;
-    float offset = 0.6f;
+    private float rayDistance = 0.1f;
+    private float offset = 0.6f;
+    public string blockType;
 
     void Update()
     {
