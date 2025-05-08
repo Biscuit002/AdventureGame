@@ -37,7 +37,7 @@ public class BossStateMachine : MonoBehaviour
         // Initialize states
         IdleState = new BossIdleState(this);
         RunState = new BossRunState(this);
-        JumpState = new BossJumpState(this);
+        JumpState = new BossJumpState(this, slamDamageBox);
         ThrowState = new BossThrowState(this);
 
         // Set up damage boxes

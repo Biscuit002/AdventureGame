@@ -1,8 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-namespace MyGame.Boss
-{
     public class BossJumpState : BossBaseState
     {
         private int jumpsRemaining;
@@ -71,4 +69,3 @@ namespace MyGame.Boss
                 slamDamageBox.SetActive(false);
         }
     }
-}
