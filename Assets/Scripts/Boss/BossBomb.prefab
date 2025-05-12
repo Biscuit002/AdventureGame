@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2473141397177767366}
   - component: {fileID: 410379130074506866}
   - component: {fileID: 959061765933850201}
+  - component: {fileID: 2323006638630429693}
   m_Layer: 0
   m_Name: BossBomb
   m_TagString: Untagged
@@ -47,12 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00fb9f8030b0e45c79f908e71fcadc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 30
-  explosionForce: 10
-  blockLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  fuseTime: 2.5
+  triggerArea: {fileID: 410379130074506866}
+  bombCollider: {fileID: 2323006638630429693}
+  targetTag: Block
+  destructionDelay: 1
 --- !u!212 &-2473141397177767366
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -143,7 +142,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.21
+  m_Radius: 2.06
 --- !u!50 &959061765933850201
 Rigidbody2D:
   serializedVersion: 5
@@ -171,3 +170,39 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &2323006638630429693
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895259071153782059}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.2

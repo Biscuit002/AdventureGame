@@ -433,6 +433,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 492841495}
   speedMultiplier: 0.8
   idleThreshold: 0.6
+  flipThreshold: 0.1
 --- !u!58 &492841499
 CircleCollider2D:
   m_ObjectHideFlags: 0
