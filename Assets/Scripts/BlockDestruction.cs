@@ -6,6 +6,17 @@ public class BlockDestruction : MonoBehaviour
     private float mouseX;
     private float mouseY;
     public GameObject grassPrefab;
+    public GameObject dirtPrefab;
+    public GameObject stonePrefab;
+    public GameObject woodPrefab;
+    public GameObject leafPrefab;
+    public GameObject copperPrefab;
+    public GameObject diamondPrefab;
+    public GameObject goldPrefab;
+    public GameObject ironPrefab;
+    public GameObject platinumPrefab;
+    public GameObject silverPrefab;
+    public GameObject titaniumPrefab;
     private float blockInteractionDistance = 5f;
     public Inventory inventory;
     private void Start()
