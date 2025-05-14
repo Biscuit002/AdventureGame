@@ -2512,6 +2512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1597515466}
+  - component: {fileID: 1597515467}
   m_Layer: 0
   m_Name: Inventory
   m_TagString: Untagged
@@ -2546,6 +2547,55 @@ Transform:
   - {fileID: 493857247}
   m_Father: {fileID: 751186715}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1597515467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597515465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7eefd4df0f094581b968b7bca9a93bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grassAmount: 0
+  dirtAmount: 0
+  stoneAmount: 0
+  woodAmount: 0
+  leafAmount: 0
+  copperAmount: 0
+  diamondAmount: 0
+  goldAmount: 0
+  ironAmount: 0
+  platinumAmount: 0
+  silverAmount: 0
+  titaniumAmount: 0
+  grassText: {fileID: 5221152}
+  dirtText: {fileID: 1226959323}
+  stoneText: {fileID: 211471129}
+  woodText: {fileID: 1098231353}
+  leafText: {fileID: 1732540878}
+  copperText: {fileID: 1279695158}
+  diamondText: {fileID: 127506498}
+  goldText: {fileID: 1030745135}
+  ironText: {fileID: 1625117288}
+  platinumText: {fileID: 1852223978}
+  silverText: {fileID: 713593732}
+  titaniumText: {fileID: 2116155070}
+  grassUI: {fileID: 83182840}
+  dirtUI: {fileID: 588327716}
+  stoneUI: {fileID: 625606481}
+  woodUI: {fileID: 1213485512}
+  leafUI: {fileID: 956440346}
+  copperUI: {fileID: 743751582}
+  diamondUI: {fileID: 243929676}
+  goldUI: {fileID: 224245231}
+  ironUI: {fileID: 1717434623}
+  platinumUI: {fileID: 237491363}
+  silverUI: {fileID: 520302754}
+  titaniumUI: {fileID: 493857246}
+  blockDestruction: {fileID: 0}
 --- !u!1 &1625117286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,7 +2954,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1808713805}
   - component: {fileID: 1808713806}
-  - component: {fileID: 1808713807}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2942,42 +2991,6 @@ MonoBehaviour:
   physicsRadius: 32
   updateInterval: 0.1
   chunkSize: 16
---- !u!114 &1808713807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808713803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7eefd4df0f094581b968b7bca9a93bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grassAmount: 0
-  dirtAmount: 0
-  stoneAmount: 0
-  woodAmount: 0
-  leafAmount: 0
-  copperAmount: 0
-  diamondAmount: 0
-  goldAmount: 0
-  ironAmount: 0
-  platinumAmount: 0
-  silverAmount: 0
-  titaniumAmount: 0
-  grassText: {fileID: 5221152}
-  dirtText: {fileID: 1226959323}
-  stoneText: {fileID: 211471129}
-  woodText: {fileID: 1098231353}
-  leafText: {fileID: 1732540878}
-  copperText: {fileID: 1279695158}
-  diamondText: {fileID: 127506498}
-  goldText: {fileID: 1030745135}
-  ironText: {fileID: 1625117288}
-  platinumText: {fileID: 1852223978}
-  silverText: {fileID: 713593732}
-  titaniumText: {fileID: 2116155070}
 --- !u!1 &1852223976
 GameObject:
   m_ObjectHideFlags: 0
@@ -3131,8 +3144,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a7677dff2af431592382c7b9662439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassPrefab: {fileID: 6764798889672699533, guid: 1dd42ab7fe0c34831a052c3e8ab2398d, type: 3}
+  blockPrefabs:
+  - {fileID: 6764798889672699533, guid: 1dd42ab7fe0c34831a052c3e8ab2398d, type: 3}
+  - {fileID: 6223972730770015895, guid: 5ab6335cfd0394cd1b8bdeadd609d615, type: 3}
+  - {fileID: 953402088855851773, guid: b6681dfe455cd4d88bb75cbf1ff775ee, type: 3}
+  - {fileID: 939882473878639468, guid: df82bbef42b4244439dc7028cf1b2150, type: 3}
+  - {fileID: 4283704989965256144, guid: ee17c33db37394d5dbd1698a40e9f435, type: 3}
+  - {fileID: 6046749491904956846, guid: 0b3ec595af860410f91979a33bde2d23, type: 3}
+  - {fileID: 1932248000418953476, guid: 1bb832c8328324e3f9013ca454271f17, type: 3}
+  - {fileID: 680882022236462883, guid: 11a60b05ac44541d19ff81f9f8fa0edd, type: 3}
+  - {fileID: 8866469301047622151, guid: 5779facf2fef04ea6b8d3b80ebdf5966, type: 3}
+  - {fileID: 7092246842203135567, guid: 751a2574df52d4e918548fd0ab836641, type: 3}
+  - {fileID: 522934907162508886, guid: bd5563d9617d74428a560c267dceb1bb, type: 3}
+  - {fileID: 529926597476889379, guid: 21a262fa594f74b9186131f243f9c0a0, type: 3}
   inventory: {fileID: 0}
+  currentBlock: 0
 --- !u!1 &1953376524
 GameObject:
   m_ObjectHideFlags: 0
