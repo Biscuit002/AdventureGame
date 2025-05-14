@@ -1,71 +1,46 @@
-using System.Collections;
-using UnityEngine;
+using UnityEngine; 
 
-    public class BossJumpState : BossBaseState
-    {
-        private int jumpsRemaining;
-        private float jumpCooldown = 2.5f;
-        private float nextJumpTime;
-        public GameObject slamDamageBox;
+public class BossJumpState : BossBaseState 
+{ 
+    private bool hasLanded = false; 
+    private GameObject slamDamageBox; 
 
-        // Constructor requires a reference to the BossStateMachine and the slam damage box.
-        public BossJumpState(BossStateMachine stateMachine, GameObject slamDamageBoxRef) : base(stateMachine)
-        {
-            slamDamageBox = slamDamageBoxRef;
-        }
+    public BossJumpState(BossStateMachine stateMachine, GameObject slamDamageBoxRef) : base(stateMachine) 
+    { 
+        slamDamageBox = slamDamageBoxRef; 
+    } 
 
-        public override void Enter()
-        {
-            // If slamDamageBox is not already assigned, try to find it in the scene.
-            if (slamDamageBox == null)
-            {
-                Debug.LogError("slamDamageBox not assigned in BossJumpState. Attempting to find object in the hierarchy.");
-                slamDamageBox = GameObject.Find("SlamDamageBox");
-                if (slamDamageBox == null)
-                    Debug.LogError("SlamDamageBox not found. Please check the name or assign the reference manually.");
-            }
+    public override void Enter() 
+    { 
+        hasLanded = false; 
 
-            jumpsRemaining = Random.Range(3, 7);
-            nextJumpTime = Time.time;
+        // Add vertical force for jump 
+        stateMachine.RB.linearVelocity = new Vector2(stateMachine.RB.linearVelocity.x, stateMachine.JumpForce); 
 
-            // Play the jump animation if available.
-            if (stateMachine.Animator != null)
-                stateMachine.Animator.Play("BossJump");
-        }
+        // Play jump sound 
+        if (stateMachine.AudioSource != null && stateMachine.jumpSound != null) 
+        { 
+            stateMachine.AudioSource.PlayOneShot(stateMachine.jumpSound); 
+        } 
+    } 
 
-        public override void Tick(float deltaTime)
-        {
-            Vector2 direction = stateMachine.GetDirectionToPlayer();
-            stateMachine.RB.linearVelocity = new Vector2(direction.x * stateMachine.MoveSpeed * 0.5f, stateMachine.RB.linearVelocity.y);
+    public override void Tick(float deltaTime) 
+    { 
+        // Check if the boss has landed 
+        if (!hasLanded && stateMachine.RB.linearVelocity.y == 0) 
+        { 
+            hasLanded = true; 
 
-            if (Time.time >= nextJumpTime && jumpsRemaining > 0)
-            {
-                stateMachine.RB.AddForce(Vector2.up * stateMachine.JumpForce, ForceMode2D.Impulse);
-                jumpsRemaining--;
-                nextJumpTime = Time.time + jumpCooldown;
+            // Play ground hit sound 
+            if (stateMachine.AudioSource != null && stateMachine.groundHitSound != null) 
+            { 
+                stateMachine.AudioSource.PlayOneShot(stateMachine.groundHitSound); 
+            } 
+        } 
+    } 
 
-                if (stateMachine.IsGrounded())
-                {
-                    slamDamageBox.SetActive(true);
-                    stateMachine.StartCoroutine(DeactivateSlamBoxAfterDelay());
-                }
-            }
-            else if (jumpsRemaining <= 0 && stateMachine.IsGrounded())
-            {
-                stateMachine.SwitchState(stateMachine.IdleState);
-            }
-        }
-
-        private IEnumerator DeactivateSlamBoxAfterDelay()
-        {
-            yield return new WaitForSeconds(0.2f);
-            if (slamDamageBox != null)
-                slamDamageBox.SetActive(false);
-        }
-
-        public override void Exit()
-        {
-            if (slamDamageBox != null)
-                slamDamageBox.SetActive(false);
-        }
-    }
+    public override void Exit() 
+    { 
+        // Cleanup or reset logic if needed 
+    } 
+} 
