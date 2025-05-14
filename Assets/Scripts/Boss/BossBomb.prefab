@@ -52,6 +52,7 @@ MonoBehaviour:
   bombCollider: {fileID: 2323006638630429693}
   targetTag: Block
   destructionDelay: 1
+  explosionSound: {fileID: 8300000, guid: 1e25fa98b3e034f16844fe21e74c8f1c, type: 3}
 --- !u!212 &-2473141397177767366
 SpriteRenderer:
   m_ObjectHideFlags: 0
