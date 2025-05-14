@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 5221153}
   - component: {fileID: 5221152}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GrassText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,17 +279,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83182840}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5221151}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: -540.15234, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &83182842
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 127506499}
   - component: {fileID: 127506498}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DiamondText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 211471130}
   - component: {fileID: 211471129}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StoneText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 224245234}
   - component: {fileID: 224245233}
   m_Layer: 5
-  m_Name: GrassAmount (7)
+  m_Name: GoldAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,17 +627,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224245231}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1030745134}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: 159.14777, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224245233
@@ -660,7 +660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: -1117934127970907629, guid: 8912bacc4ecc94fc1be9b6f1f521f899, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 237491366}
   - component: {fileID: 237491365}
   m_Layer: 5
-  m_Name: GrassAmount (9)
+  m_Name: PlatinumAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -703,17 +703,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237491363}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1852223977}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: 361.64777, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &237491365
@@ -736,7 +736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: 1344103833062332056, guid: 8c9543bc3d1b6406f9b1f73ae2309fbb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -766,7 +766,7 @@ GameObject:
   - component: {fileID: 243929679}
   - component: {fileID: 243929678}
   m_Layer: 5
-  m_Name: GrassAmount (6)
+  m_Name: DiamondAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -779,17 +779,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243929676}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 127506497}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: 58.647705, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &243929678
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: 484558277612707029, guid: a8b15a951c50b456b9f64db46f410e6d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 493857249}
   - component: {fileID: 493857248}
   m_Layer: 5
-  m_Name: GrassAmount (11)
+  m_Name: TitaniumAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,17 +855,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493857246}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2116155069}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: 559.8477, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &493857248
@@ -888,7 +888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: 94945532869402224, guid: 840e88ffa71e54802884a94d8b99d454, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 520302757}
   - component: {fileID: 520302756}
   m_Layer: 5
-  m_Name: GrassAmount (10)
+  m_Name: SilverAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -931,17 +931,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520302754}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 713593731}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: 461.64777, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &520302756
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: 6653203890169470689, guid: 22fd7de397ea84428a5619f4cb97c1dd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 588327719}
   - component: {fileID: 588327718}
   m_Layer: 5
-  m_Name: GrassAmount (1)
+  m_Name: DirtAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1007,17 +1007,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588327716}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1226959322}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: -440.05225, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588327718
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: -3337038689812066966, guid: 7c93c41b4d8de4879a3f3d316ad98135, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1070,7 +1070,7 @@ GameObject:
   - component: {fileID: 625606484}
   - component: {fileID: 625606483}
   m_Layer: 5
-  m_Name: GrassAmount (2)
+  m_Name: StoneAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1083,17 +1083,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625606481}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 211471128}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: -340.3523, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &625606483
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: -4993692349456968823, guid: 17d33b0d5b97345bcb283834576e4069, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1146,7 +1146,7 @@ GameObject:
   - component: {fileID: 713593733}
   - component: {fileID: 713593732}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SilverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1282,7 +1282,7 @@ GameObject:
   - component: {fileID: 743751585}
   - component: {fileID: 743751584}
   m_Layer: 5
-  m_Name: GrassAmount (5)
+  m_Name: CopperAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1295,17 +1295,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743751582}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1279695157}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: -40.352295, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &743751584
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: 8465903898383619031, guid: 0fea77f56837d474e9192074ed50fd32, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1440,18 +1440,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 83182841}
-  - {fileID: 588327717}
-  - {fileID: 625606482}
-  - {fileID: 1213485513}
-  - {fileID: 956440347}
-  - {fileID: 743751583}
-  - {fileID: 243929677}
-  - {fileID: 224245232}
-  - {fileID: 1717434624}
-  - {fileID: 237491364}
-  - {fileID: 520302755}
-  - {fileID: 493857247}
+  - {fileID: 1597515466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1700,7 +1689,7 @@ GameObject:
   - component: {fileID: 956440349}
   - component: {fileID: 956440348}
   m_Layer: 5
-  m_Name: GrassAmount (4)
+  m_Name: LeafAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1713,17 +1702,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956440346}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1732540877}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: -140.3523, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &956440348
@@ -1746,7 +1735,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: 7100757809047929424, guid: 8961f0f89e11e47989dc5b9bacb1ba92, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1776,7 +1765,7 @@ GameObject:
   - component: {fileID: 1030745136}
   - component: {fileID: 1030745135}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GoldText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1912,7 +1901,7 @@ GameObject:
   - component: {fileID: 1098231354}
   - component: {fileID: 1098231353}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WoodText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2112,7 +2101,7 @@ GameObject:
   - component: {fileID: 1213485515}
   - component: {fileID: 1213485514}
   m_Layer: 5
-  m_Name: GrassAmount (3)
+  m_Name: WoodAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2125,17 +2114,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213485512}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1098231352}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: -240.2522, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1213485514
@@ -2158,7 +2147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: -4586428514890812713, guid: 7f254c269af0444bda394a90538dbae3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2188,7 +2177,7 @@ GameObject:
   - component: {fileID: 1226959324}
   - component: {fileID: 1226959323}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DirtText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2324,7 +2313,7 @@ GameObject:
   - component: {fileID: 1279695159}
   - component: {fileID: 1279695158}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CopperText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2514,6 +2503,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1597515465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1597515466}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1597515466
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597515465}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -589.64777, y: -195.68353, z: -7.64535}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 83182841}
+  - {fileID: 588327717}
+  - {fileID: 625606482}
+  - {fileID: 1213485513}
+  - {fileID: 956440347}
+  - {fileID: 743751583}
+  - {fileID: 243929677}
+  - {fileID: 224245232}
+  - {fileID: 1717434624}
+  - {fileID: 237491364}
+  - {fileID: 520302755}
+  - {fileID: 493857247}
+  m_Father: {fileID: 751186715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1625117286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,7 +2558,7 @@ GameObject:
   - component: {fileID: 1625117289}
   - component: {fileID: 1625117288}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: IronText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2662,7 +2694,7 @@ GameObject:
   - component: {fileID: 1717434626}
   - component: {fileID: 1717434625}
   m_Layer: 5
-  m_Name: GrassAmount (8)
+  m_Name: IronAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2675,17 +2707,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1717434623}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 7.64535}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1625117287}
-  m_Father: {fileID: 751186715}
+  m_Father: {fileID: 1597515466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1129.8, y: -571.3}
+  m_AnchoredPosition: {x: 259.54782, y: -375.61646}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717434625
@@ -2708,7 +2740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1768240043701040873, guid: e06197d552a8e466eaf288f276f1f3e1, type: 3}
+  m_Sprite: {fileID: -5903314136343892256, guid: fe64e76b5b5d8460395376cd1b59cf73, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2738,7 +2770,7 @@ GameObject:
   - component: {fileID: 1732540879}
   - component: {fileID: 1732540878}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: LeafText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2935,17 +2967,17 @@ MonoBehaviour:
   silverAmount: 0
   titaniumAmount: 0
   grassText: {fileID: 5221152}
-  dirtText: {fileID: 0}
-  stoneText: {fileID: 0}
-  woodText: {fileID: 0}
-  leafText: {fileID: 0}
-  copperText: {fileID: 0}
-  diamondText: {fileID: 0}
-  goldText: {fileID: 0}
-  ironText: {fileID: 0}
-  platinumText: {fileID: 0}
-  silverText: {fileID: 0}
-  titaniumText: {fileID: 0}
+  dirtText: {fileID: 1226959323}
+  stoneText: {fileID: 211471129}
+  woodText: {fileID: 1098231353}
+  leafText: {fileID: 1732540878}
+  copperText: {fileID: 1279695158}
+  diamondText: {fileID: 127506498}
+  goldText: {fileID: 1030745135}
+  ironText: {fileID: 1625117288}
+  platinumText: {fileID: 1852223978}
+  silverText: {fileID: 713593732}
+  titaniumText: {fileID: 2116155070}
 --- !u!1 &1852223976
 GameObject:
   m_ObjectHideFlags: 0
@@ -2958,7 +2990,7 @@ GameObject:
   - component: {fileID: 1852223979}
   - component: {fileID: 1852223978}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PlatinumText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3176,7 +3208,7 @@ GameObject:
   - component: {fileID: 2116155071}
   - component: {fileID: 2116155070}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TitaniumText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
