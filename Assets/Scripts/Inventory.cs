@@ -3,7 +3,7 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
-    private Vector3 targetScale = new Vector3(1.2f, 1.2f, 1.2f);
+    private Vector3 targetScale = new Vector3(1.4f, 1.4f, 1.4f);
     private float speed = 5f;
 
     public int grassAmount = 0;
