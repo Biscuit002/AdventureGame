@@ -252,9 +252,8 @@ MonoBehaviour:
   animator: {fileID: 3194766181428865684}
   playerRigidbody: {fileID: 1914377576693117475}
   spriteRenderer: {fileID: 21253814}
-  speedMultiplier: 0.35
-  idleThreshold: 0.05
   flipThreshold: 0.1
+  lerpSpeed: 1
 --- !u!1 &6734205709435017409
 GameObject:
   m_ObjectHideFlags: 0
