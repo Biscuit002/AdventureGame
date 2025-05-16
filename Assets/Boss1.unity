@@ -686,8 +686,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a7677dff2af431592382c7b9662439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassPrefab: {fileID: 0}
+  blockPrefabs: []
   inventory: {fileID: 0}
+  blockIndex: 0
 --- !u!4 &1327573253
 Transform:
   m_ObjectHideFlags: 0
@@ -974,7 +975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 476504, guid: f0187a43815b60745a3841ed349ab2a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.07
+      value: 61.9
       objectReference: {fileID: 0}
     - target: {fileID: 476504, guid: f0187a43815b60745a3841ed349ab2a2, type: 3}
       propertyPath: m_LocalPosition.y
