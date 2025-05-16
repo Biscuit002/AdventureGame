@@ -9,8 +9,12 @@ public class BossIdleState : BossBaseState
 
     public override void Enter()
     {
+        //////ADDED
+        stateMachine.SwitchState(stateMachine.RunState);
+        return;
+        //////
         // Set random idle duration between 1-3 seconds
-        idleDuration = Random.Range(1f, 3f);
+        idleDuration = 0;//Random.Range(1f, 3f);
         idleEndTime = Time.time + idleDuration;
 
         // Play idle animation
