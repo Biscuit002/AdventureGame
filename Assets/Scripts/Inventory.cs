@@ -47,12 +47,24 @@ public class Inventory : MonoBehaviour
     public GameObject silverUI;
     public GameObject titaniumUI;
 
-    public BlockDestruction blockDestruction;
+    private Vector3 grassPosition;
+    private Vector3 dirtPosition;
+    private Vector3 stonePosition;
+    private Vector3 woodPosition;
+    private Vector3 leafPosition;
 
+    private float offset = 0.1f;
+
+    public BlockDestruction blockDestruction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         blockDestruction = FindObjectOfType<BlockDestruction>();
+        grassPosition = grassUI.transform.localPosition;
+        dirtPosition = dirtUI.transform.localPosition;
+        stonePosition = stoneUI.transform.localPosition;
+        woodPosition = woodUI.transform.localPosition;
+        leafPosition = leafUI.transform.localPosition;
     }
 
     // Update is called once per frame
@@ -75,122 +87,80 @@ public class Inventory : MonoBehaviour
         {
             currentBlockAmount = grassAmount;
             grassUI.transform.localScale = Vector3.Lerp(grassUI.transform.localScale, targetScale, Time.deltaTime * speed);
+            Vector3 grassTarget = grassPosition + new Vector3(0, 100, 0);
+            grassUI.transform.localPosition = Vector3.Lerp(grassUI.transform.localPosition, grassTarget, Time.deltaTime * speed);
+            grassUI.transform.localRotation = Quaternion.Lerp(grassUI.transform.localRotation, Quaternion.Euler(0, 0, -25), Time.deltaTime * speed);
         }
         else
         {
-            grassUI.transform.localScale = Vector3.Lerp(grassUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
+            grassUI.transform.localScale = Vector3.Lerp(grassUI.transform.localScale, new Vector3(1,1,1), Time.deltaTime * speed);
+            grassUI.transform.localPosition = Vector3.Lerp(grassUI.transform.localPosition, grassPosition, Time.deltaTime * speed);
+            grassUI.transform.localRotation = Quaternion.Lerp(grassUI.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * speed);
         }
-
+        // Dirt
         if (blockDestruction.blockIndex == 1)
         {
             currentBlockAmount = dirtAmount;
             dirtUI.transform.localScale = Vector3.Lerp(dirtUI.transform.localScale, targetScale, Time.deltaTime * speed);
+            Vector3 dirtTarget = dirtPosition + new Vector3(0, 100, 0);
+            dirtUI.transform.localPosition = Vector3.Lerp(dirtUI.transform.localPosition, dirtTarget, Time.deltaTime * speed);
+            dirtUI.transform.localRotation = Quaternion.Lerp(dirtUI.transform.localRotation, Quaternion.Euler(0, 0, -25), Time.deltaTime * speed);
         }
         else
         {
-            dirtUI.transform.localScale = Vector3.Lerp(dirtUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
+            dirtUI.transform.localScale = Vector3.Lerp(dirtUI.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * speed);
+            dirtUI.transform.localPosition = Vector3.Lerp(dirtUI.transform.localPosition, dirtPosition, Time.deltaTime * speed);
+            dirtUI.transform.localRotation = Quaternion.Lerp(dirtUI.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * speed);
         }
 
+        // Stone
         if (blockDestruction.blockIndex == 2)
         {
             currentBlockAmount = stoneAmount;
             stoneUI.transform.localScale = Vector3.Lerp(stoneUI.transform.localScale, targetScale, Time.deltaTime * speed);
+            Vector3 stoneTarget = stonePosition + new Vector3(0, 100, 0);
+            stoneUI.transform.localPosition = Vector3.Lerp(stoneUI.transform.localPosition, stoneTarget, Time.deltaTime * speed);
+            stoneUI.transform.localRotation = Quaternion.Lerp(stoneUI.transform.localRotation, Quaternion.Euler(0, 0, -25), Time.deltaTime * speed);
         }
         else
         {
-            stoneUI.transform.localScale = Vector3.Lerp(stoneUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
+            stoneUI.transform.localScale = Vector3.Lerp(stoneUI.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * speed);
+            stoneUI.transform.localPosition = Vector3.Lerp(stoneUI.transform.localPosition, stonePosition, Time.deltaTime * speed);
+            stoneUI.transform.localRotation = Quaternion.Lerp(stoneUI.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * speed);
         }
 
+        // Wood
         if (blockDestruction.blockIndex == 3)
         {
             currentBlockAmount = woodAmount;
             woodUI.transform.localScale = Vector3.Lerp(woodUI.transform.localScale, targetScale, Time.deltaTime * speed);
+            Vector3 woodTarget = woodPosition + new Vector3(0, 100, 0);
+            woodUI.transform.localPosition = Vector3.Lerp(woodUI.transform.localPosition, woodTarget, Time.deltaTime * speed);
+            woodUI.transform.localRotation = Quaternion.Lerp(woodUI.transform.localRotation, Quaternion.Euler(0, 0, -25), Time.deltaTime * speed);
         }
         else
         {
-            woodUI.transform.localScale = Vector3.Lerp(woodUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
+            woodUI.transform.localScale = Vector3.Lerp(woodUI.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * speed);
+            woodUI.transform.localPosition = Vector3.Lerp(woodUI.transform.localPosition, woodPosition, Time.deltaTime * speed);
+            woodUI.transform.localRotation = Quaternion.Lerp(woodUI.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * speed);
         }
 
+        // Leaf
         if (blockDestruction.blockIndex == 4)
         {
             currentBlockAmount = leafAmount;
             leafUI.transform.localScale = Vector3.Lerp(leafUI.transform.localScale, targetScale, Time.deltaTime * speed);
+            Vector3 leafTarget = leafPosition + new Vector3(0, 100, 0);
+            leafUI.transform.localPosition = Vector3.Lerp(leafUI.transform.localPosition, leafTarget, Time.deltaTime * speed);
+            leafUI.transform.localRotation = Quaternion.Lerp(leafUI.transform.localRotation, Quaternion.Euler(0, 0, -25), Time.deltaTime * speed);
         }
         else
         {
-            leafUI.transform.localScale = Vector3.Lerp(leafUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
+            leafUI.transform.localScale = Vector3.Lerp(leafUI.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime * speed);
+            leafUI.transform.localPosition = Vector3.Lerp(leafUI.transform.localPosition, leafPosition, Time.deltaTime * speed);
+            leafUI.transform.localRotation = Quaternion.Lerp(leafUI.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * speed);
         }
-
-        if (blockDestruction.blockIndex == speed)
-        {
-            currentBlockAmount = copperAmount;
-            copperUI.transform.localScale = Vector3.Lerp(copperUI.transform.localScale, targetScale, Time.deltaTime * speed);
-        }
-        else
-        {
-            copperUI.transform.localScale = Vector3.Lerp(copperUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
-        }
-
-        if (blockDestruction.blockIndex == 6)
-        {
-            currentBlockAmount = diamondAmount;
-            diamondUI.transform.localScale = Vector3.Lerp(diamondUI.transform.localScale, targetScale, Time.deltaTime * speed);
-        }
-        else
-        {
-            diamondUI.transform.localScale = Vector3.Lerp(diamondUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
-        }
-
-        if (blockDestruction.blockIndex == 7)
-        {
-            currentBlockAmount = goldAmount;
-            goldUI.transform.localScale = Vector3.Lerp(goldUI.transform.localScale, targetScale, Time.deltaTime * speed);
-        }
-        else
-        {
-            goldUI.transform.localScale = Vector3.Lerp(goldUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
-        }
-
-        if (blockDestruction.blockIndex == 8)
-        {
-            currentBlockAmount = ironAmount;
-            ironUI.transform.localScale = Vector3.Lerp(ironUI.transform.localScale, targetScale, Time.deltaTime * speed);
-        }
-        else
-        {
-            ironUI.transform.localScale = Vector3.Lerp(ironUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
-        }
-
-        if (blockDestruction.blockIndex == 9)
-        {
-            currentBlockAmount = platinumAmount;
-            platinumUI.transform.localScale = Vector3.Lerp(platinumUI.transform.localScale, targetScale, Time.deltaTime * speed);
-        }
-        else
-        {
-            platinumUI.transform.localScale = Vector3.Lerp(platinumUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
-        }
-
-        if (blockDestruction.blockIndex == 10)
-        {
-            currentBlockAmount = silverAmount; 
-            silverUI.transform.localScale = Vector3.Lerp(silverUI.transform.localScale, targetScale, Time.deltaTime * speed);
-        }
-        else
-        {
-            silverUI.transform.localScale = Vector3.Lerp(silverUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
-        }
-
-        if (blockDestruction.blockIndex == 11)
-        {
-            currentBlockAmount = titaniumAmount;
-            titaniumUI.transform.localScale = Vector3.Lerp(titaniumUI.transform.localScale, targetScale, Time.deltaTime * speed);
-        }
-        else
-        {
-            titaniumUI.transform.localScale = Vector3.Lerp(titaniumUI.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * speed);
-        }
-
+/*
         if (grassAmount > 0)
         {
             grassUI.SetActive(true);
@@ -297,6 +267,6 @@ public class Inventory : MonoBehaviour
         else
         {
             titaniumUI.SetActive(false);
-        }
+        } */
     }
 }
